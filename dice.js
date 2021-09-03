@@ -5,7 +5,7 @@ function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-//create dice obj
+//create dice object
 let dice = {
     // attribute "value" store number 1->6 as array
     value: [1, 2, 3, 4, 5, 6],
