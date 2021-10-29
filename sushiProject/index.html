@@ -32,7 +32,8 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <button class="btn btn-outline-dark rounded-0">🛒 ตะกร้าสินค้า</button>
+                        <button class="btn btn-outline-dark rounded-0" data-bs-toggle="modal"
+                            data-bs-target="#cartModal">🛒 ตะกร้าสินค้า</button>
                     </div>
                 </div>
             </nav>
@@ -43,10 +44,45 @@
                 <!-- Product Data will show here -->
             </div>
         </div>
+
+        <div id="modal">
+            <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cartModalLabel">ตะกร้าสินค้า 🛒</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="cart">
+                            <!-- Cart data will show here -->
+                            <div class="row" id="cart-1">
+                                <div class="col-3">
+                                    <img src="./assets/images/foie-gras-sushi.jpeg" class="rounded mx-auto d-block" width="100px" alt="">
+                                </div>
+                                <div class="col-2">
+                                    <p>Kanimiso</p>
+                                </div>
+                                <div class="col-2">
+                                    <span>จำนวน 3 ชิ้น</span>
+                                </div>
+                                <div class="col-3">
+                                    <span>ราคาต่อชิ้น 200 บาท</span>
+                                </div>
+                                <div class="col-2">
+                                    <div class="btn btn-danger btn-sm rounded-0">ลบ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-        <script src="./assets/javascript/script.js" type="module"></script>
-    </body>
+    <script src="./assets/javascript/cart.js"></script>
+    <script src="./assets/javascript/script.js" type="module"></script>
+</body>
+
 </html>

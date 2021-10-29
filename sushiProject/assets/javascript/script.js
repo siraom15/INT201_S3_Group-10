@@ -58,7 +58,7 @@ prodData.forEach(e => {
         createEl("div", {
             class: "btn btn-dark rounded-0 text-center",
             inner: "เพิ่มลงตะกร้าสินค้า",
-            onclick: `addToCart(${e.id});`
+            onclick: `addToCart("${e.id}");`
         })
         :
         createEl("div", {
