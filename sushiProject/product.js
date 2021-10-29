@@ -18,7 +18,7 @@ let products = [
     {
         id : "s003",
         name : "Sushituna",
-        describe : "ใน1เชตจะมีชูชิ 1 ชิ้น",
+        describe : "ใน 1 เชตจะมีชูชิ 2 ชิ้น",
         pictureName : "sushituna.png",
         price : 60,
         remainInStock : 100,
