@@ -37,7 +37,7 @@ let products = [
         describe : "In 1 set have Foiegras 3 pcs.",
         pictureName : "foie-gras-sushi.jpeg",
         price : 100,
-        remainInStock : 100,
+        remainInStock : 0,
     },
 ]
 export { products };
