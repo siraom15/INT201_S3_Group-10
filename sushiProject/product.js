@@ -2,9 +2,9 @@ let products = [{
     id: "Id Here",
     name: "Name Here",
     describe: "Desc Here",
-    pictureUrl: "Url here",
+    pictureName: "Url here",
     price: 0,
-    remain: 0,
+    remainInStock: 0,
 }];
 
 export { products };
