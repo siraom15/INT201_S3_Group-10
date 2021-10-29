@@ -31,5 +31,13 @@ let products = [
         price : 80,
         remainInStock : 100,
     }    
+    {
+        id : "s005",
+        name : "Foiegrassushi",
+        describe : "ใน 1 เชตจะมีชูชิ 3 ชิ้น",
+        pictureName : "foie-gras-sushi.jpeg",
+        price : 100,
+        remainInStock : 100,
+    },
 ]
 export { products };
