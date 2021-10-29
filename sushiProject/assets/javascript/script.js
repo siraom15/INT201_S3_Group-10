@@ -16,15 +16,17 @@ function appendManyChilds(parent, ...childs) {
     childs.forEach(e => parent.appendChild(e));
 }
 
+function renderProduct(){
+
 let productDiv = document.getElementById("products");
 
 prodData.forEach(e => {
     let col = createEl("div", {
-        class: "col-xs-12 col-md-6 col-lg-4 col-xl-3",
+        class: "col-xs-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch mt-2",
         id: e.id
     });
     let card = createEl("div", {
-        class: "card shadow-sm text-center m-3",
+        class: "card shadow-sm text-center",
         style: "width: 18rem;"
     });
     let img = createEl("img", {
@@ -77,4 +79,5 @@ prodData.forEach(e => {
     col.appendChild(card);
     productDiv.appendChild(col);
 });
-
+}
+renderProduct();
