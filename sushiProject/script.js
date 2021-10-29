@@ -19,7 +19,7 @@ function appendManyChilds(parent, ...childs) {
 let productDiv = document.getElementById("products");
 
 prodData.forEach(e => {
-    let col = createEl("div", { class: "col-xs-12 col-md-6 col-lg-4 col-xl-4" });
+    let col = createEl("div", { class: "col-xs-12 col-md-6 col-lg-4 col-xl-4",id : e.id });
     let card = createEl("div", { class: "card shadow-sm text-center", style: "width: 18rem;" });
     let img = createEl("img", { src: `./assets/images/${e.pictureName}` });
     let cardBody = createEl("div", { class: "card-body" });
@@ -31,7 +31,7 @@ prodData.forEach(e => {
     let btnAddToCart = createEl("a", { class: "btn btn-dark rounded-0 text-center", inner: "เพิ่มลงตะกร้าสินค้า" })
 
     divAddToCart.appendChild(btnAddToCart);
-    
+
     let cardBodyChilds = [sushiName, describe, price, remain, divAddToCart];
     appendManyChilds(cardBody, ...cardBodyChilds);
 
