@@ -8,12 +8,11 @@ function createEl(elName, attributes) {
         } else {
             el.setAttribute(attr, attributes[attr])
         }
-
     }
     return el;
 }
 
-function appendManyChilds(parent, childs = []) {
+function appendManyChilds(parent, ...childs) {
     childs.forEach(e => parent.appendChild(e));
 }
 
@@ -32,12 +31,12 @@ prodData.forEach(e => {
     let btnAddToCart = createEl("a", { class: "btn btn-dark rounded-0 text-center", inner: "เพิ่มลงตะกร้าสินค้า" })
 
     divAddToCart.appendChild(btnAddToCart);
-
+    
     let cardBodyChilds = [sushiName, describe, price, remain, divAddToCart];
-    appendManyChilds(cardBody, cardBodyChilds);
+    appendManyChilds(cardBody, ...cardBodyChilds);
 
     let cardChilds = [img, cardBody];
-    appendManyChilds(card, cardChilds);
+    appendManyChilds(card, ...cardChilds);
 
     col.appendChild(card);
     productDiv.appendChild(col);
