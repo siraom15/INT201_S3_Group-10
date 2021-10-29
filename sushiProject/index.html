@@ -18,7 +18,7 @@
 <body>
     <div id="app" class="container">
         <div id="navbar">
-            <nav class="navbar navbar-light navbar-expand-lg bg-light mt-2 shadow-sm rounded">
+            <nav class="navbar navbar-light navbar-expand-lg bg-light mt-2 shadow-sm rounded-0">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                         <img src="./assets/favicon/favicon.png" alt="" width="30" height="24">
@@ -35,7 +35,7 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <button class="btn btn-outline-dark">🛒 ตะกร้าสินค้า</button>
+                        <button class="btn btn-outline-dark rounded-0">🛒 ตะกร้าสินค้า</button>
                     </div>
                 </div>
             </nav>
@@ -43,19 +43,17 @@
         <div id="content" class="container mt-3">
             <!-- Code Here -->
             <div class="h2 text-center">รายการซูชิทั้งหมด</div>
-            <div class="row">
+            <div id="products" class="row">
                 <div class="col-4">
-                    <div class="card shadow-sm" style="width: 18rem;">
-                        <div class="card-body text-center">
-                            <img src="./assets/images/foie-gras-sushi.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Unagi</h5>
-                                <p class="card-text">ใน 1 เชตจะมีชูชิ 1 ชิ้น</p>
-                                <p class="card-text">ราคา : 80 บาท</p>
-                                <p class="card-text">คงเหลือ : 100 ชิ้น</p>
-                                <div class="d-flex justify-content-center">
-                                    <a href="#" class="btn btn-dark rounded-0 text-center">เพิ่มลงตะกร้า</a>
-                                </div>
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <img src="./assets/images/foie-gras-sushi.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Unagi</h5>
+                            <p class="card-text">ใน 1 เชตจะมีชูชิ 1 ชิ้น</p>
+                            <p class="card-text">ราคา : 80 บาท</p>
+                            <p class="card-text">คงเหลือ : 100 ชิ้น</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-dark rounded-0 text-center">เพิ่มลงตะกร้า</a>
                             </div>
                         </div>
                     </div>
