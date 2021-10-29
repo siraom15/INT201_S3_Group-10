@@ -19,9 +19,9 @@ function appendManyChilds(parent, ...childs) {
 let productDiv = document.getElementById("products");
 
 prodData.forEach(e => {
-    let col = createEl("div", { class: "col-xs-12 col-md-6 col-lg-4 col-xl-4",id : e.id });
-    let card = createEl("div", { class: "card shadow-sm text-center", style: "width: 18rem;" });
-    let img = createEl("img", { src: `./assets/images/${e.pictureName}` });
+    let col = createEl("div", { class: "col-xs-12 col-md-6 col-lg-4 col-xl-3",id : e.id });
+    let card = createEl("div", { class: "card shadow-sm text-center m-3", style: "width: 18rem;" });
+    let img = createEl("img", { src: `./assets/images/${e.pictureName}`,height : '200px' });
     let cardBody = createEl("div", { class: "card-body" });
     let sushiName = createEl("h5", { class: "card-title", inner: e.name });
     let describe = createEl("p", { class: "card-title", inner: e.describe });
