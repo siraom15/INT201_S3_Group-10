@@ -22,7 +22,7 @@ let productDiv = document.getElementById("products");
 
 prodData.forEach(e => {
     let col = createEl("div", {
-        class: "col-xs-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch mt-2",
+        class: "col-xs-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch mt-2 justify-content-center",
         id: e.id
     });
     let card = createEl("div", {
