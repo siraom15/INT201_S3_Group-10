@@ -2,9 +2,9 @@ let products = [
     {
         id : "s001",
         name : "Kanimiso",
-        describe : "ใน 1 เช็ดจะมี 1 เถาถ่าน",
+        describe : "ใน 1 เชตจะมี 1 อัน",
         pictureName : "kanimiso.jpeg",
-        price : 000,
+        price : 200,
         remainInStock : 100,
     },
     {
@@ -18,7 +18,7 @@ let products = [
     {
         id : "s003",
         name : "Sushituna",
-        describe : "ใน1เชตจะมีชูชิ 1 ชิ้น",
+        describe : "ใน 1 เชตจะมีชูชิ 2 ชิ้น",
         pictureName : "sushituna.png",
         price : 60,
         remainInStock : 100,
@@ -31,5 +31,13 @@ let products = [
         price : 80,
         remainInStock : 100,
     }    
+    {
+        id : "s005",
+        name : "Foiegrassushi",
+        describe : "ใน 1 เชตจะมีชูชิ 3 ชิ้น",
+        pictureName : "foie-gras-sushi.jpeg",
+        price : 100,
+        remainInStock : 100,
+    },
 ]
 export { products };
