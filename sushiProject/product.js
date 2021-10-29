@@ -2,9 +2,9 @@ let products = [
     {
         id : "s001",
         name : "Kanimiso",
-        describe : "ใน 1 เช็ดจะมี 1 เถาถ่าน",
+        describe : "ใน 1 เชตจะมี 1 อัน",
         pictureName : "kanimiso.jpeg",
-        price : 000,
+        price : 200,
         remainInStock : 100,
     },
     {
