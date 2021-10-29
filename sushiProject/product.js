@@ -30,7 +30,7 @@ let products = [
         pictureName : "unagi.jpeg",
         price : 80,
         remainInStock : 100,
-    }    
+    },    
     {
         id : "s005",
         name : "Foiegrassushi",
