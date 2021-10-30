@@ -1,6 +1,7 @@
 # INT201_S3_Group-10
 
-## Group ID
+## Group Member
+
 1. 63130500120 Sirawat Jaiyungyuen
 2. 63130500127 Hirun Kongpetch
 3. 63130500138 Kantapon Tantrapornpong
