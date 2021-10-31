@@ -2,7 +2,7 @@ let products = [
     {
         id : "s001",
         name : "Kanimiso",
-        describe : "In 1 set have 1pcs",
+        describe : "In 1 set have 1 pcs",
         pictureName : "kanimiso.jpeg",
         price : 200,
         remainInStock : 100,
@@ -10,7 +10,7 @@ let products = [
     {
         id : "s002",
         name : "Sashimituna",
-        describe : "In 1 Set have Tuna 9 pcs. with side dishes",
+        describe : "In 1 set have Tuna 9 pcs. with side dishes",
         pictureName : "sashimituna.jpeg",
         price : 70,
         remainInStock : 100,
@@ -18,7 +18,7 @@ let products = [
     {
         id : "s003",
         name : "Sushituna",
-        describe : "In 1 set have tuna 1 pcs.",
+        describe : "In 1 set have Tuna 1 pcs.",
         pictureName : "sushituna.png",
         price : 60,
         remainInStock : 100,
@@ -38,6 +38,6 @@ let products = [
         pictureName : "foie-gras-sushi.jpeg",
         price : 100,
         remainInStock : 0,
-    },
+    }
 ]
 export { products };
