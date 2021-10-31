@@ -18,7 +18,7 @@ let products = [
     {
         id : "s003",
         name : "Sushituna",
-        describe : "In 1 set have unagi 1 pcs.",
+        describe : "In 1 set have tuna 1 pcs.",
         pictureName : "sushituna.png",
         price : 60,
         remainInStock : 100,
@@ -26,7 +26,7 @@ let products = [
     {
         id : "s004",
         name : "Unagi",
-        describe : "ใน 1 เชตจะมีชูชิ 1 ชิ้น",
+        describe : "In 1 set have unagi 1 pcs.",
         pictureName : "unagi.jpeg",
         price : 80,
         remainInStock : 100,
@@ -34,7 +34,7 @@ let products = [
     {
         id : "s005",
         name : "Foiegrassushi",
-        describe : "In 1 set have Foiegras 3 pcs.",
+        describe : "In 1 set have foiegras 3 pcs.",
         pictureName : "foie-gras-sushi.jpeg",
         price : 100,
         remainInStock : 0,
