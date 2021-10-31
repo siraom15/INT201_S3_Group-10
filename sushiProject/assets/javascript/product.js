@@ -2,7 +2,7 @@ let products = [
     {
         id : "s001",
         name : "Kanimiso",
-        describe : "In 1 set have 1 pcs",
+        describe : "In 1 set have Crab 1 pcs",
         pictureName : "kanimiso.jpeg",
         price : 200,
         remainInStock : 100,
