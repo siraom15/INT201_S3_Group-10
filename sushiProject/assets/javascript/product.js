@@ -26,7 +26,7 @@ let products = [
     {
         id : "s004",
         name : "Unagi",
-        describe : "In 1 set have unagi 1 pcs.",
+        describe : "In 1 set have Unagi 1 pcs.",
         pictureName : "unagi.jpeg",
         price : 80,
         remainInStock : 100,
@@ -34,7 +34,7 @@ let products = [
     {
         id : "s005",
         name : "Foiegrassushi",
-        describe : "In 1 set have foiegras 3 pcs.",
+        describe : "In 1 set have Foiegras 3 pcs.",
         pictureName : "foie-gras-sushi.jpeg",
         price : 100,
         remainInStock : 0,
