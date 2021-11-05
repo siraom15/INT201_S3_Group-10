@@ -1,0 +1,6 @@
+toggle search area => show/hide search area     (jub,tae)
+search 
+    1. get search value (string *)              (not)
+    2. filter product name like * in products   (aom, arm)
+        2.1 name include => [{}] **  
+    3. show **
