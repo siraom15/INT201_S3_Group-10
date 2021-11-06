@@ -82,3 +82,12 @@ function renderProduct(prodData) {
 }
 
 renderProduct(prodData);
+
+// show hide button
+document.getElementById("toggleBtn").addEventListener('click',() =>{
+  if(searchArea.classList.contains('d-none')){
+    searchArea.classList.remove('d-none')
+  } else {
+    searchArea.classList.add('d-none')
+  }
+});
