@@ -41,11 +41,52 @@ let products = [
   },
   {
     id: 's006',
-    name: 'MakiSushi',
-    describe: 'In 1 set have Maki 1 pcs.',
+    name: 'SushiSalmon',
+    describe: 'In 1 set have Salmon 1 pcs.',
     pictureName: 'maki.jpeg',
     price: 50,
     remainInStock: 100,
-  }
+  },
+  {
+    id: 's007',
+    name: 'EbisuSushiSet',
+    describe: 'In 1 set have Ebisu 13 pcs.',
+    pictureName: 'ebisu-sushiset.jpeg',
+    price: 399,
+    remainInStock: 20,
+  },
+  {
+    id: 's008',
+    name: 'SalmonTeriyakiRoll',
+    describe: 'In 1 set have Salmon Roll 3 pcs.',
+    pictureName: 'Salmon-teriyaki-roll.jpeg',
+    price: 100,
+    remainInStock: 30,
+  },
+  {
+    id: 's010',
+    name: 'Sashimi',
+    describe: 'In 1 set have Sashimi 12 pcs.',
+    pictureName: 'sashimi.jpeg',
+    price: 399,
+    remainInStock: 0,
+  },
+  {
+    id: 's011',
+    name: 'SabaSteak',
+    describe: 'In 1 set have Saba 1 pcs.',
+    pictureName: 'saba.jpeg',
+    price: 399,
+    remainInStock: 100,
+  },
+  {
+    id: 's012',
+    name: 'Chirashi Don',
+    describe: 'In 1 set have Sashimi 12 pcs.',
+    pictureName: 'ChirashiDon.jpg',
+    price: 349,
+    remainInStock: 20,
+  },
+  
 ];
 export { products };
