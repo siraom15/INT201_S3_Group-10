@@ -3,6 +3,8 @@ import { addToCart } from './cart.js';
 import { products } from './product-list.js';
 
 export function renderProduct(productsArr = products) {
+  console.log('Render Products');
+
   let productDiv = document.getElementById('products');
   productDiv.innerHTML = '';
 

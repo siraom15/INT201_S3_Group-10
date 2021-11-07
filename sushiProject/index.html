@@ -34,7 +34,8 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <button id="cartBtn" type="button" class="btn btn-outline-dark rounded-0 position-relative">
+                        <button id="cartBtn" type="button" class="btn btn-outline-dark rounded-0 position-relative"
+                            data-bs-toggle="modal" data-bs-target="#cartModal">
                             🛒 ตะกร้าสินค้า
                             <span id="numberCartItem"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -79,6 +80,46 @@
             <div class="container p-2">
                 <div id="products" class="row">
                     <!-- Product Data will show here -->
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div id="modal">
+                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cartModalLabel">ตะกร้าสินค้า</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="cart">
+
+                                <!-- Cart data will show here -->
+
+                                <!-- Demo Card -->
+                                <!-- <div class="row" id="cart-1">
+                                    <div class="col-3">
+                                        <img src="./assets/images/foie-gras-sushi.jpeg" class="rounded mx-auto d-block"
+                                            width="100px" alt="">
+                                    </div>
+                                    <div class="col-2">
+                                        <p>Kanimiso</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <span>จำนวน 3 ชิ้น</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <span>600 บาท</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="btn btn-danger btn-sm rounded-0">ลบ</div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

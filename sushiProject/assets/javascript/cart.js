@@ -1,3 +1,4 @@
+import { createEl, appendManyChilds } from './utils.js';
 import { findProductById } from './product.js';
 
 let currentCart = [];
@@ -20,10 +21,10 @@ export function addToCart(e) {
     }
   }
   updateCartCountSpan(getTotalCartItem(currentCart));
-  console.log(currentCart);
+  renderCartModal();
 }
 
-function getTotalCartPrice() {
+export function getTotalCartPrice() {
   return currentCart.reduce((prev, curr) => {
     let price = curr.product.price * curr.quantity;
     return prev + price;
@@ -42,4 +43,78 @@ function getTotalCartItem() {
 
 function updateCartCountSpan(numberOfCartItem) {
   document.getElementById('numberCartItem').innerText = numberOfCartItem;
+}
+
+export function renderCartModal() {
+  console.log('Render Carts');
+  let cartDiv = document.getElementById('cart');
+  cartDiv.innerHTML = '';
+  if (!currentCart.length) {
+    let h5 = createEl('h5', {
+      class: 'text-center',
+      inner: 'ไม่มีรายการสินค้าในตะกร้า',
+    });
+    cartDiv.appendChild(h5);
+    return;
+  }
+  currentCart.forEach((cartItem) => {
+    let row = createEl('div', {
+      class: 'row m-1',
+    });
+
+    let col1 = createEl('div', {
+      class: 'col-3',
+    });
+
+    let img = createEl('img', {
+      class: 'rounded mx-auto d-block',
+      src: `./assets/images/${cartItem.product.pictureName}`,
+      width: '100px',
+    });
+
+    let col2 = createEl('div', {
+      class: 'col-2',
+    });
+
+    let p = createEl('p', {
+      inner: cartItem.product.name,
+    });
+
+    let col3 = createEl('div', {
+      class: 'col-2',
+    });
+
+    let span1 = createEl('span', {
+      inner: `จำนวน ${cartItem.quantity} ชิ้น`,
+    });
+
+    let col4 = createEl('div', {
+      class: 'col-3',
+    });
+
+    let span2 = createEl('span', {
+      inner: `${cartItem.quantity * cartItem.product.price} บาท`,
+    });
+
+    let col5 = createEl('div', {
+      class: 'col-2',
+    });
+
+    let btn = createEl('div', {
+      class: 'btn btn-danger btn-sm rounded-0',
+      inner: 'ลบ',
+    });
+
+    col1.appendChild(img);
+    col2.appendChild(p);
+    col3.appendChild(span1);
+    col4.appendChild(span2);
+    col5.appendChild(btn);
+
+    let rowChilds = [col1, col2, col3, col4, col5];
+
+    appendManyChilds(row, ...rowChilds);
+
+    cartDiv.appendChild(row);
+  });
 }
