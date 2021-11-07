@@ -19,18 +19,22 @@ function appendManyChilds(parent, ...childs) {
 function renderProduct(prodData) {
   let productDiv = document.getElementById('products');
 
-  prodData.forEach((e) => {
+  // delete productDiv childs
+  productDiv.innerHTML = '';
+
+  // create element
+  prodData.forEach((product) => {
     let col = createEl('div', {
       class:
         'col-xs-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch mt-2 justify-content-center',
-      id: e.id,
+      id: product.id,
     });
     let card = createEl('div', {
       class: 'card shadow-sm text-center',
       style: 'width: 18rem;',
     });
     let img = createEl('img', {
-      src: `./assets/images/${e.pictureName}`,
+      src: `./assets/images/${product.pictureName}`,
       height: '200px',
     });
     let cardBody = createEl('div', {
@@ -38,36 +42,37 @@ function renderProduct(prodData) {
     });
     let sushiName = createEl('h5', {
       class: 'card-title',
-      inner: e.name,
+      inner: product.name,
     });
     let describe = createEl('p', {
       class: 'card-title',
-      inner: e.describe,
+      inner: product.describe,
     });
     let price = createEl('p', {
       class: 'card-title',
-      inner: `ราคา : ${e.price} บาท`,
+      inner: `ราคา : ${product.price} บาท`,
     });
     let remain = createEl('p', {
       class: 'card-title',
-      inner: `คงเหลือ : ${e.remainInStock} จำนวน`,
+      inner: `คงเหลือ : ${product.remainInStock} จำนวน`,
     });
     let divAddToCart = createEl('div', {
       class: 'd-flex justify-content-center',
     });
 
     let btnAddToCart =
-      e.remainInStock > 0
+      product.remainInStock > 0
         ? createEl('div', {
             class: 'btn btn-dark rounded-0 text-center',
             inner: 'เพิ่มลงตะกร้าสินค้า',
-            onclick: `addToCart(${e.id});`,
+            onclick: `addToCart(${product.id});`,
           })
         : createEl('div', {
             class: 'btn btn-dark rounded-0 text-center disabled',
             inner: 'สินค้าหมด',
           });
 
+    // insert childs
     divAddToCart.appendChild(btnAddToCart);
 
     let cardBodyChilds = [sushiName, describe, price, remain, divAddToCart];
@@ -83,11 +88,21 @@ function renderProduct(prodData) {
 
 renderProduct(prodData);
 
-// show hide button
-document.getElementById("toggleBtn").addEventListener('click',() =>{
-  if(searchArea.classList.contains('d-none')){
-    searchArea.classList.remove('d-none')
+// show hide SearchArea function
+function toggleSearchArea() {
+  let searchArea = document.getElementById('searchArea');
+  if (searchArea.classList.contains('d-none')) {
+    searchArea.classList.remove('d-none');
   } else {
-    searchArea.classList.add('d-none')
+    searchArea.classList.add('d-none');
   }
-});
+}
+// add eventlistener to toggleBtn
+document
+  .getElementById('toggleBtn')
+  .addEventListener('click', toggleSearchArea);
+
+// filter product by name
+function findProductByName(name) {
+  return prodData.filter((product) => product.name.includes(name));
+}
