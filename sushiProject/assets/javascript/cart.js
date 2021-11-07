@@ -93,7 +93,7 @@ export function renderCartModal() {
     });
 
     let span2 = createEl('span', {
-      inner: `${cartItem.quantity * cartItem.product.price} บาท`,
+      inner: `ราคา ${cartItem.quantity * cartItem.product.price} บาท`,
     });
 
     let col5 = createEl('div', {
