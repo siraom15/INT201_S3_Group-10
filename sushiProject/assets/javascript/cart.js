@@ -63,17 +63,17 @@ export function renderCartModal() {
     });
 
     let col1 = createEl('div', {
-      class: 'col-3',
+      class: 'col-sm-12 col-md-3 col-lg-3',
     });
 
     let img = createEl('img', {
-      class: 'rounded mx-auto d-block',
+      class: 'rounded d-block',
       src: `./assets/images/${cartItem.product.pictureName}`,
       width: '100px',
     });
 
     let col2 = createEl('div', {
-      class: 'col-2',
+      class: 'col-sm-12 col-md-2 col-lg-2',
     });
 
     let p = createEl('p', {
@@ -81,7 +81,7 @@ export function renderCartModal() {
     });
 
     let col3 = createEl('div', {
-      class: 'col-2',
+      class: 'col-sm-12 col-md-2 col-lg-2',
     });
 
     let span1 = createEl('span', {
@@ -89,7 +89,7 @@ export function renderCartModal() {
     });
 
     let col4 = createEl('div', {
-      class: 'col-3',
+      class: 'col-sm-12 col-md-3 col-lg-3',
     });
 
     let span2 = createEl('span', {
@@ -105,13 +105,17 @@ export function renderCartModal() {
       inner: 'ลบ',
     });
 
+    let hr = createEl('hr', {
+      class: 'mt-2',
+    });
+
     col1.appendChild(img);
     col2.appendChild(p);
     col3.appendChild(span1);
     col4.appendChild(span2);
     col5.appendChild(btn);
 
-    let rowChilds = [col1, col2, col3, col4, col5];
+    let rowChilds = [col1, col2, col3, col4, col5, hr];
 
     appendManyChilds(row, ...rowChilds);
 
