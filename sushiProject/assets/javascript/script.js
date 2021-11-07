@@ -104,5 +104,16 @@ document
 
 // filter product by name
 function findProductByName(name) {
-  return prodData.filter((product) => product.name.includes(name));
+  return prodData.filter((product) => product.name.toLowerCase().includes(name));
 }
+
+function searchName() {
+  let name = document.getElementById('searchInput').value;
+  let filerName = findProductByName(name);
+  renderProduct(filerName);
+}
+
+document
+    .getElementById('searchBtn')
+    .addEventListener('click', searchName);
+ 
