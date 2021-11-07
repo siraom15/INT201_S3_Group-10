@@ -39,5 +39,13 @@ let products = [
     price: 100,
     remainInStock: 0,
   },
+  {
+    id: 's006',
+    name: 'MakiSushi',
+    describe: 'In 1 set have Maki 1 pcs.',
+    pictureName: 'maki.jpeg',
+    price: 50,
+    remainInStock: 100,
+  }
 ];
 export { products };
