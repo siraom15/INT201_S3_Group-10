@@ -8,7 +8,7 @@ export function addToCart(e) {
 
   let [resultProduct] = findProductById(product_id);
 
-  if (resultProduct) {
+  if (resultProduct && resultProduct.remainInStock > 0) {
     let index = findCartIndexByProductId(product_id);
     if (index != -1) {
       currentCart[index].quantity++;
