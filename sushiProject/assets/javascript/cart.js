@@ -1,13 +1,14 @@
-import { products } from './product-list.js';
-import { findProductById } from './utils.js';
+import { findProductById } from './product.js';
 
 let currentCart = [];
 
 export function addToCart(e) {
-  let id = e.target.id;
-  let [resultProduct] = findProductById(products, id);
+  let product_id = e.target.id;
+
+  let [resultProduct] = findProductById(products, product_id);
+
   if (resultProduct) {
-    let index = findCartIndexByProductId(resultProduct.id);
+    let index = findCartIndexByProductId(product_id);
     if (index != -1) {
       currentCart[index].quantity++;
     } else {
@@ -18,7 +19,7 @@ export function addToCart(e) {
       currentCart.push(cartItem);
     }
   }
-  console.log(currentCart);
+  updateCartCountSpan(getTotalCartItem(currentCart));
 }
 
 function getTotalCartPrice(currentCart) {
@@ -32,4 +33,12 @@ function findCartIndexByProductId(product_id) {
   return currentCart.findIndex(
     (cartItem) => cartItem.product.id === product_id
   );
+}
+
+function getTotalCartItem(currentCart) {
+  return currentCart.reduce((prev, curr) => prev + curr.quantity, 0);
+}
+
+function updateCartCountSpan(numberOfCartItem) {
+  document.getElementById('numberCartItem').innerText = numberOfCartItem;
 }

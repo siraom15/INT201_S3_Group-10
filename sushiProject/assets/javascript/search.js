@@ -1,12 +1,4 @@
-import { products } from './product-list.js';
-import { findProductByName } from './utils.js';
-import { renderProduct } from './product.js';
-
-export function searchName() {
-  let name = document.getElementById('searchInput').value;
-  let resultProducts = findProductByName(products, name);
-  renderProduct(resultProducts);
-}
+import { renderProduct, findProductByName } from './product.js';
 
 export function toggleSearchArea() {
   let searchArea = document.getElementById('searchArea');
@@ -22,6 +14,12 @@ export function toggleSearchArea() {
     closeIcon.classList.add('d-none');
     searchIcon.classList.remove('d-none');
   }
+}
+
+export function searchName() {
+  let name = document.getElementById('searchInput').value;
+  let resultProducts = findProductByName(name);
+  renderProduct(resultProducts);
 }
 
 document

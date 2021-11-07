@@ -17,7 +17,7 @@
     <div id="app">
         <!-- Navbar  -->
         <div id="navbar">
-            <nav class="navbar navbar-light navbar-expand-lg bg-light shadow-sm rounded-0">
+            <nav class="navbar navbar-light navbar-expand-lg bg-light shadow-sm rounded-0 fixed-top">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                         <img src="./assets/favicon/favicon.png" alt="" width="30" height="30">
@@ -34,7 +34,13 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <button class="btn btn-outline-dark rounded-0">🛒 ตะกร้าสินค้า</button>
+                        <button id="cartBtn" type="button" class="btn btn-outline-dark rounded-0 position-relative">
+                            🛒 ตะกร้าสินค้า
+                            <span id="numberCartItem"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </button>
                     </div>
                 </div>
             </nav>

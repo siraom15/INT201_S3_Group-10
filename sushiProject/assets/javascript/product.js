@@ -1,11 +1,12 @@
 import { createEl, appendManyChilds } from './utils.js';
 import { addToCart } from './cart.js';
+import { products } from './product-list.js';
 
-export function renderProduct(products) {
+export function renderProduct(productsArr = products) {
   let productDiv = document.getElementById('products');
   productDiv.innerHTML = '';
 
-  if (!products.length) {
+  if (!productsArr.length) {
     let h5 = createEl('h5', {
       class: 'text-center',
       inner: 'ไม่พบสินค้า',
@@ -14,7 +15,7 @@ export function renderProduct(products) {
     return;
   }
 
-  products.forEach((product) => {
+  productsArr.forEach((product) => {
     let col = createEl('div', {
       class:
         'col-xs-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch mt-2 justify-content-center',
@@ -77,4 +78,13 @@ export function renderProduct(products) {
     col.appendChild(card);
     productDiv.appendChild(col);
   });
+}
+
+export function findProductByName(name) {
+  return products.filter((product) =>
+    product.name.toLowerCase().includes(name)
+  );
+}
+export function findProductById(id) {
+  return products.filter((product) => product.id === id);
 }

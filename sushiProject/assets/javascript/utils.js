@@ -13,12 +13,3 @@ export function createEl(elName, attributes) {
 export function appendManyChilds(parent, ...childs) {
   childs.forEach((e) => parent.appendChild(e));
 }
-
-export function findProductByName(products, name) {
-  return products.filter((product) =>
-    product.name.toLowerCase().includes(name)
-  );
-}
-export function findProductById(products, id) {
-  return products.filter((product) => product.id === id);
-}
