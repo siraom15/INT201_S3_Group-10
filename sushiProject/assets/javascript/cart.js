@@ -5,7 +5,7 @@ let currentCart = [];
 export function addToCart(e) {
   let product_id = e.target.id;
 
-  let [resultProduct] = findProductById(products, product_id);
+  let [resultProduct] = findProductById(product_id);
 
   if (resultProduct) {
     let index = findCartIndexByProductId(product_id);
@@ -20,9 +20,10 @@ export function addToCart(e) {
     }
   }
   updateCartCountSpan(getTotalCartItem(currentCart));
+  console.log(currentCart);
 }
 
-function getTotalCartPrice(currentCart) {
+function getTotalCartPrice() {
   return currentCart.reduce((prev, curr) => {
     let price = curr.product.price * curr.quantity;
     return prev + price;
@@ -35,7 +36,7 @@ function findCartIndexByProductId(product_id) {
   );
 }
 
-function getTotalCartItem(currentCart) {
+function getTotalCartItem() {
   return currentCart.reduce((prev, curr) => prev + curr.quantity, 0);
 }
 
