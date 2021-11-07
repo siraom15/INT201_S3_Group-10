@@ -22,6 +22,13 @@ function renderProduct(prodData) {
   // delete productDiv childs
   productDiv.innerHTML = '';
 
+  if (!prodData.length) {
+    let h5 = createEl('h5', {
+      class: 'text-center',
+      inner: 'ไม่พบสินค้า',
+    });
+    productDiv.appendChild(h5);
+  }
   // create element
   prodData.forEach((product) => {
     let col = createEl('div', {
@@ -65,12 +72,12 @@ function renderProduct(prodData) {
         ? createEl('div', {
             class: 'btn btn-dark rounded-0 text-center',
             inner: 'เพิ่มลงตะกร้าสินค้า',
-            onclick: `addToCart(${product.id});`,
           })
         : createEl('div', {
             class: 'btn btn-dark rounded-0 text-center disabled',
             inner: 'สินค้าหมด',
           });
+    btnAddToCart.addEventListener('click', addToCart);
 
     // insert childs
     divAddToCart.appendChild(btnAddToCart);
@@ -91,10 +98,17 @@ renderProduct(prodData);
 // show hide SearchArea function
 function toggleSearchArea() {
   let searchArea = document.getElementById('searchArea');
+  let searchIcon = document.getElementById('searchIcon');
+  let closeIcon = document.getElementById('closeIcon');
+
   if (searchArea.classList.contains('d-none')) {
     searchArea.classList.remove('d-none');
+    closeIcon.classList.remove('d-none');
+    searchIcon.classList.add('d-none');
   } else {
     searchArea.classList.add('d-none');
+    closeIcon.classList.add('d-none');
+    searchIcon.classList.remove('d-none');
   }
 }
 // add eventlistener to toggleBtn
@@ -104,7 +118,9 @@ document
 
 // filter product by name
 function findProductByName(name) {
-  return prodData.filter((product) => product.name.toLowerCase().includes(name));
+  return prodData.filter((product) =>
+    product.name.toLowerCase().includes(name)
+  );
 }
 
 function searchName() {
@@ -113,7 +129,8 @@ function searchName() {
   renderProduct(filerName);
 }
 
-document
-    .getElementById('searchBtn')
-    .addEventListener('click', searchName);
- 
+document.getElementById('searchBtn').addEventListener('click', searchName);
+
+function addToCart(e) {
+  console.log(e);
+}
