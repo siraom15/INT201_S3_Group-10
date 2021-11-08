@@ -84,7 +84,7 @@ export function renderProduct(productsArr = products) {
 
 export function findProductByName(name) {
   return products.filter((product) =>
-    product.name.toLowerCase().includes(name)
+    product.name.toLowerCase().includes(name.toLowerCase())
   );
 }
 export function findProductById(id) {
