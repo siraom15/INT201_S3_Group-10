@@ -44,16 +44,16 @@ function updateCartCountSpan(numberOfCartItem) {
   document.getElementById('numberCartItem').innerText = numberOfCartItem;
 }
 
-export function renderCartModal() {
+function renderCartModal() {
   console.log('Render Carts');
   let cartDiv = document.getElementById('cart');
   cartDiv.innerHTML = '';
   if (!currentCart.length) {
-    let h5 = createEl('h5', {
+    let p = createEl('p', {
       class: 'text-center',
       inner: 'ไม่มีรายการสินค้าในตะกร้า',
     });
-    cartDiv.appendChild(h5);
+    cartDiv.appendChild(p);
     return;
   }
   currentCart.forEach((cartItem) => {
@@ -76,6 +76,7 @@ export function renderCartModal() {
     });
 
     let p = createEl('p', {
+      class: 'text-break',
       inner: cartItem.product.name,
     });
 
@@ -120,7 +121,23 @@ export function renderCartModal() {
 
     cartDiv.appendChild(row);
   });
+
+  let row = createEl('div', {
+    class: 'row m-1',
+  });
+
+  let col1 = createEl('div', {
+    class: 'col-12 justify-content-end text-end',
+  });
+
+  let p = createEl('p', {
+    inner: `ราคาทั้งหมด : ${getTotalCartPrice()} บาท`,
+  });
+
+  col1.appendChild(p);
+  row.appendChild(col1);
+  cartDiv.appendChild(row);
 }
 
 let cartBtn = document.getElementById('cartBtn');
-cartBtn.addEventListener('click',renderCartModal);
+cartBtn.addEventListener('click', renderCartModal);
