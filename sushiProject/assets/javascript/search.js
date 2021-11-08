@@ -1,6 +1,6 @@
 import { renderProduct, findProductByName } from './product.js';
 
-export function toggleSearchArea() {
+function toggleSearchArea() {
   let searchArea = document.getElementById('searchArea');
   let searchIcon = document.getElementById('searchIcon');
   let closeIcon = document.getElementById('closeIcon');
@@ -16,13 +16,14 @@ export function toggleSearchArea() {
   }
 }
 
-export function searchName() {
+function searchName() {
   let name = document.getElementById('searchInput').value;
   let resultProducts = findProductByName(name);
   renderProduct(resultProducts);
 }
 
-document
-  .getElementById('toggleBtn')
-  .addEventListener('click', toggleSearchArea);
-document.getElementById('searchBtn').addEventListener('click', searchName);
+let toggleBtn = document.getElementById('toggleBtn');
+toggleBtn.addEventListener('click', toggleSearchArea);
+
+let searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', searchName);
