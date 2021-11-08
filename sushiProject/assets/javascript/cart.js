@@ -21,7 +21,6 @@ export function addToCart(e) {
     }
   }
   updateCartCountSpan(getTotalCartItem(currentCart));
-  renderCartModal();
 }
 
 export function getTotalCartPrice() {
@@ -122,3 +121,6 @@ export function renderCartModal() {
     cartDiv.appendChild(row);
   });
 }
+
+let cartBtn = document.getElementById('cartBtn');
+cartBtn.addEventListener('click',renderCartModal);
