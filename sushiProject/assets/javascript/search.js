@@ -5,12 +5,15 @@ let Search = {
     let searchArea = document.getElementById('searchArea');
     let searchIcon = document.getElementById('searchIcon');
     let closeIcon = document.getElementById('closeIcon');
+    let searchInput = document.getElementById('searchInput');
 
     if (searchArea.classList.contains('d-none')) {
+      searchInput.focus();
       searchArea.classList.remove('d-none');
       closeIcon.classList.remove('d-none');
       searchIcon.classList.add('d-none');
     } else {
+      searchInput.value = '';
       searchArea.classList.add('d-none');
       closeIcon.classList.add('d-none');
       searchIcon.classList.remove('d-none');
@@ -24,6 +27,7 @@ let Search = {
 };
 
 export default Search;
+
 let toggleBtn = document.getElementById('toggleBtn');
 toggleBtn.addEventListener('click', (e) => {
   Search.toggleSearchArea();

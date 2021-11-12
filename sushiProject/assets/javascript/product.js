@@ -23,7 +23,7 @@ let Product = {
 
     if (!products.length) {
       let h5 = createEl('h5', {
-        class: 'text-center',
+        class: 'text-center mt-5',
         inner: 'ไม่พบสินค้า',
       });
       productDiv.appendChild(h5);
