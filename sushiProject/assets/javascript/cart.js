@@ -99,10 +99,10 @@ let Cart = {
         class: 'col-2',
       });
 
-      let btn = createEl('div', {
-        class: 'btn btn-danger btn-sm rounded-0',
-        inner: 'ลบ',
-      });
+      // let btn = createEl('div', {
+      //   class: 'btn btn-danger btn-sm rounded-0',
+      //   inner: 'ลบ',
+      // });
 
       let hr = createEl('hr', {
         class: 'mt-2',
@@ -112,7 +112,7 @@ let Cart = {
       col2.appendChild(p);
       col3.appendChild(span1);
       col4.appendChild(span2);
-      col5.appendChild(btn);
+      // col5.appendChild(btn);
 
       let rowChilds = [col1, col2, col3, col4, col5, hr];
 
@@ -129,11 +129,17 @@ let Cart = {
       class: 'col-12 justify-content-end text-end',
     });
 
+    let deleteAllBtn = createEl('button', {
+      class: 'btn btn-danger rounded-0 mb-3',
+      inner: 'ลบทั้งหมด',
+    });
+
     let p = createEl('p', {
       inner: `ราคาทั้งหมด : ${this.getTotalPrice()} บาท`,
     });
 
-    col1.appendChild(p);
+    let col1Childs = [deleteAllBtn, p];
+    appendManyChilds(col1, ...col1Childs);
     row.appendChild(col1);
     cartDiv.appendChild(row);
   },
