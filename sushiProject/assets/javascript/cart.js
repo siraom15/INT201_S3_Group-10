@@ -1,5 +1,6 @@
 import { createEl, appendManyChilds } from './utils.js';
 import Product from './product.js';
+import CookieUtil from './cookieUtil.js';
 
 let Cart = {
   currentCart: [],
