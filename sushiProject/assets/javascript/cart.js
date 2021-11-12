@@ -1,143 +1,146 @@
 import { createEl, appendManyChilds } from './utils.js';
-import { findProductById } from './product.js';
+import Product from './product.js';
 
-let currentCart = [];
+let Cart = {
+  currentCart: [],
+  getCart: function () {
+    return this.currentCart;
+  },
+  add: function (e) {
+    let product_id = e.target.id;
 
-export function addToCart(e) {
-  let product_id = e.target.id;
+    let [resultProduct] = Product.findById(product_id);
 
-  let [resultProduct] = findProductById(product_id);
-
-  if (resultProduct && resultProduct.remainInStock > 0) {
-    let index = findCartIndexByProductId(product_id);
-    if (index != -1) {
-      currentCart[index].quantity++;
-    } else {
-      let cartItem = {
-        product: resultProduct,
-        quantity: 1,
-      };
-      currentCart.push(cartItem);
+    if (resultProduct && resultProduct.remainInStock > 0) {
+      let index = this.findIndexByProductId(product_id);
+      if (index !== -1) {
+        this.currentCart[index].quantity++;
+      } else {
+        let newCartItem = {
+          product: resultProduct,
+          quantity: 1,
+        };
+        this.currentCart.push(newCartItem);
+      }
     }
-  }
-  updateCartCountSpan(getTotalCartItem(currentCart));
-}
+    this.render();
+  },
+  getTotalPrice: function () {
+    return this.currentCart.reduce((prev, curr) => {
+      let price = curr.product.price * curr.quantity;
+      return prev + price;
+    }, 0);
+  },
+  findIndexByProductId: function (product_id) {
+    return this.currentCart.findIndex(
+      (cartItem) => cartItem.product.id === product_id
+    );
+  },
+  getCountItem: function () {
+    return this.currentCart.reduce((prev, curr) => prev + curr.quantity, 0);
+  },
+  render: function () {
+    // Update Cart Item number
+    let numberCartItem = document.getElementById('numberCartItem');
+    numberCartItem.innerText = this.getCountItem();
 
-export function getTotalCartPrice() {
-  return currentCart.reduce((prev, curr) => {
-    let price = curr.product.price * curr.quantity;
-    return prev + price;
-  }, 0);
-}
+    let cartDiv = document.getElementById('cart');
+    cartDiv.innerHTML = '';
+    if (!this.currentCart.length) {
+      let p = createEl('p', {
+        class: 'text-center',
+        inner: 'ไม่มีรายการสินค้าในตะกร้า',
+      });
+      cartDiv.appendChild(p);
+      return;
+    }
+    this.currentCart.forEach((cartItem) => {
+      let row = createEl('div', {
+        class: 'row m-1',
+      });
 
-function findCartIndexByProductId(product_id) {
-  return currentCart.findIndex(
-    (cartItem) => cartItem.product.id === product_id
-  );
-}
+      let col1 = createEl('div', {
+        class: 'col-sm-12 col-md-3 col-lg-3',
+      });
 
-function getTotalCartItem() {
-  return currentCart.reduce((prev, curr) => prev + curr.quantity, 0);
-}
+      let img = createEl('img', {
+        class: 'rounded d-block',
+        src: `./assets/images/${cartItem.product.pictureName}`,
+        width: '100px',
+      });
 
-function updateCartCountSpan(numberOfCartItem) {
-  document.getElementById('numberCartItem').innerText = numberOfCartItem;
-}
+      let col2 = createEl('div', {
+        class: 'col-sm-12 col-md-2 col-lg-2',
+      });
 
-function renderCartModal() {
-  console.log('Render Carts');
-  let cartDiv = document.getElementById('cart');
-  cartDiv.innerHTML = '';
-  if (!currentCart.length) {
-    let p = createEl('p', {
-      class: 'text-center',
-      inner: 'ไม่มีรายการสินค้าในตะกร้า',
+      let p = createEl('p', {
+        class: 'text-break',
+        inner: cartItem.product.name,
+      });
+
+      let col3 = createEl('div', {
+        class: 'col-sm-12 col-md-2 col-lg-2',
+      });
+
+      let span1 = createEl('span', {
+        inner: `จำนวน ${cartItem.quantity} ชิ้น`,
+      });
+
+      let col4 = createEl('div', {
+        class: 'col-sm-12 col-md-3 col-lg-3',
+      });
+
+      let span2 = createEl('span', {
+        inner: `ราคา ${cartItem.quantity * cartItem.product.price} บาท`,
+      });
+
+      let col5 = createEl('div', {
+        class: 'col-2',
+      });
+
+      let btn = createEl('div', {
+        class: 'btn btn-danger btn-sm rounded-0',
+        inner: 'ลบ',
+      });
+
+      let hr = createEl('hr', {
+        class: 'mt-2',
+      });
+
+      col1.appendChild(img);
+      col2.appendChild(p);
+      col3.appendChild(span1);
+      col4.appendChild(span2);
+      col5.appendChild(btn);
+
+      let rowChilds = [col1, col2, col3, col4, col5, hr];
+
+      appendManyChilds(row, ...rowChilds);
+
+      cartDiv.appendChild(row);
     });
-    cartDiv.appendChild(p);
-    return;
-  }
-  currentCart.forEach((cartItem) => {
+
     let row = createEl('div', {
       class: 'row m-1',
     });
 
     let col1 = createEl('div', {
-      class: 'col-sm-12 col-md-3 col-lg-3',
-    });
-
-    let img = createEl('img', {
-      class: 'rounded d-block',
-      src: `./assets/images/${cartItem.product.pictureName}`,
-      width: '100px',
-    });
-
-    let col2 = createEl('div', {
-      class: 'col-sm-12 col-md-2 col-lg-2',
+      class: 'col-12 justify-content-end text-end',
     });
 
     let p = createEl('p', {
-      class: 'text-break',
-      inner: cartItem.product.name,
+      inner: `ราคาทั้งหมด : ${this.getTotalPrice()} บาท`,
     });
 
-    let col3 = createEl('div', {
-      class: 'col-sm-12 col-md-2 col-lg-2',
-    });
-
-    let span1 = createEl('span', {
-      inner: `จำนวน ${cartItem.quantity} ชิ้น`,
-    });
-
-    let col4 = createEl('div', {
-      class: 'col-sm-12 col-md-3 col-lg-3',
-    });
-
-    let span2 = createEl('span', {
-      inner: `ราคา ${cartItem.quantity * cartItem.product.price} บาท`,
-    });
-
-    let col5 = createEl('div', {
-      class: 'col-2',
-    });
-
-    let btn = createEl('div', {
-      class: 'btn btn-danger btn-sm rounded-0',
-      inner: 'ลบ',
-    });
-
-    let hr = createEl('hr', {
-      class: 'mt-2',
-    });
-
-    col1.appendChild(img);
-    col2.appendChild(p);
-    col3.appendChild(span1);
-    col4.appendChild(span2);
-    col5.appendChild(btn);
-
-    let rowChilds = [col1, col2, col3, col4, col5, hr];
-
-    appendManyChilds(row, ...rowChilds);
-
+    col1.appendChild(p);
+    row.appendChild(col1);
     cartDiv.appendChild(row);
-  });
-
-  let row = createEl('div', {
-    class: 'row m-1',
-  });
-
-  let col1 = createEl('div', {
-    class: 'col-12 justify-content-end text-end',
-  });
-
-  let p = createEl('p', {
-    inner: `ราคาทั้งหมด : ${getTotalCartPrice()} บาท`,
-  });
-
-  col1.appendChild(p);
-  row.appendChild(col1);
-  cartDiv.appendChild(row);
-}
+  },
+};
 
 let cartBtn = document.getElementById('cartBtn');
-cartBtn.addEventListener('click', renderCartModal);
+cartBtn.addEventListener('click', (e) => {
+  Cart.render();
+});
+
+export default Cart;

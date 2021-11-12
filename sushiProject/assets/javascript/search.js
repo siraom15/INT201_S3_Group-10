@@ -1,4 +1,4 @@
-import { renderProduct, findProductByName } from './product.js';
+import Product from './product.js';
 
 function toggleSearchArea() {
   let searchArea = document.getElementById('searchArea');
@@ -18,8 +18,8 @@ function toggleSearchArea() {
 
 function searchName() {
   let name = document.getElementById('searchInput').value;
-  let resultProducts = findProductByName(name);
-  renderProduct(resultProducts);
+  let resultProducts = Product.findByName(name);
+  Product.render(resultProducts);
 }
 
 let toggleBtn = document.getElementById('toggleBtn');
