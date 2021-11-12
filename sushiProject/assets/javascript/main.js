@@ -3,6 +3,6 @@ import './product.js';
 import './search.js';
 import './cart.js';
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (e) => {
   Product.render();
 });
