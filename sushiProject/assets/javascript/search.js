@@ -17,6 +17,7 @@ let Search = {
       searchArea.classList.add('d-none');
       closeIcon.classList.add('d-none');
       searchIcon.classList.remove('d-none');
+      Product.render();
     }
   },
   searchName: function () {
