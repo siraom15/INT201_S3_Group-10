@@ -26,6 +26,9 @@ let Cart = {
     }
     this.render();
   },
+  deleteAll: function () {
+    this.currentCart = [];
+  },
   getTotalPrice: function () {
     return this.currentCart.reduce((prev, curr) => {
       let price = curr.product.price * curr.quantity;
@@ -135,9 +138,7 @@ let Cart = {
     });
     //Delete all product in cart
     deleteAllBtn.addEventListener('click', event => {
-    event.preventDefault()
-    cartItems = {items: [], itemId: [] , totalQty: 0} 
-    cartCount.textContent = 0  
+      this.deleteAll()
     });
 
     let p = createEl('p', {
