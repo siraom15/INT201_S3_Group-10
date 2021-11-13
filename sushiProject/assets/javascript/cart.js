@@ -138,8 +138,7 @@ let Cart = {
     });
     //Delete all product in cart
     deleteAllBtn.addEventListener('click', event => {
-      this.deleteAll()
-      numberCartItem.textContent = 0;
+      this.deleteAll();
     });
 
     let p = createEl('p', {
