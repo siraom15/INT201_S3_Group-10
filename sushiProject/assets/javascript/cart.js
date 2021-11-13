@@ -133,6 +133,12 @@ let Cart = {
       class: 'btn btn-danger rounded-0 mb-3',
       inner: 'ลบทั้งหมด',
     });
+    //Delete all product in cart
+    deleteAllBtn.addEventListener('click', event => {
+    event.preventDefault()
+    cartItems = {items: [], itemId: [] , totalQty: 0} 
+    cartCount.textContent = 0  
+    });
 
     let p = createEl('p', {
       inner: `ราคาทั้งหมด : ${this.getTotalPrice()} บาท`,
