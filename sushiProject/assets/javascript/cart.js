@@ -26,10 +26,6 @@ let Cart = {
     }
     this.render();
   },
-  deleteAll: function () {
-    this.currentCart = [];
-    this.render();
-  },
   getTotalPrice: function () {
     return this.currentCart.reduce((prev, curr) => {
       let price = curr.product.price * curr.quantity;
@@ -150,6 +146,10 @@ let Cart = {
     appendManyChilds(col1, ...col1Childs);
     row.appendChild(col1);
     cartDiv.appendChild(row);
+  },
+  deleteAll: function () {
+    this.currentCart = [];
+    this.render();
   },
 };
 
