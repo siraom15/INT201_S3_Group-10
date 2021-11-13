@@ -1,4 +1,5 @@
 let Theme = {
+  isDarkMode: false,
   toggle: function () {
     // toggle
     let body = document.getElementsByTagName('body')[0];
