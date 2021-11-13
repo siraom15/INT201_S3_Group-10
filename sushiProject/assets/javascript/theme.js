@@ -9,10 +9,10 @@ let Theme = {
       body.setAttribute('class', 'bg-light');
     }
   },
-  load: function () {
+  loadCookie: function () {
     // load setting from cookie
   },
-  save: function () {
+  saveCookie: function () {
     // save setting to cookie
   },
 };

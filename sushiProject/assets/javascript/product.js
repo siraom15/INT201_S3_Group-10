@@ -3,7 +3,11 @@ import Cart from './cart.js';
 import { products } from './product-list.js';
 
 let Product = {
-  products: products,
+  products: [],
+  init : function () {
+    this.products = products;
+    this.render();
+  },
   getAll: function () {
     return this.products;
   },

@@ -4,6 +4,10 @@ import CookieUtil from './cookieUtil.js';
 
 let Cart = {
   currentCart: [],
+  init: function () {
+    this.loadCookie();
+    this.render();
+  },
   getCart: function () {
     return this.currentCart;
   },
@@ -24,6 +28,9 @@ let Cart = {
         this.currentCart.push(newCartItem);
       }
     }
+    // save to cookie
+    this.saveCookie();
+    // render to html
     this.render();
   },
   getTotalPrice: function () {
@@ -134,8 +141,8 @@ let Cart = {
       inner: 'ลบทั้งหมด',
     });
     //Delete all product in cart
-    deleteAllBtn.addEventListener('click', event => {
-      this.deleteAll()
+    deleteAllBtn.addEventListener('click', (event) => {
+      this.deleteAll();
     });
 
     let p = createEl('p', {
@@ -149,7 +156,17 @@ let Cart = {
   },
   deleteAll: function () {
     this.currentCart = [];
+    this.deleteCookie();
     this.render();
+  },
+  loadCookie: function () {
+    this.currentCart = JSON.parse(CookieUtil.get('cart')) || [];
+  },
+  saveCookie: function () {
+    CookieUtil.set('cart', JSON.stringify(this.currentCart));
+  },
+  deleteCookie: function () {
+    CookieUtil.unset('cart');
   },
 };
 
