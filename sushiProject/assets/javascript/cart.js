@@ -28,6 +28,7 @@ let Cart = {
   },
   deleteAll: function () {
     this.currentCart = [];
+    this.render();
   },
   getTotalPrice: function () {
     return this.currentCart.reduce((prev, curr) => {
