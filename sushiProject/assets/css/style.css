@@ -26,3 +26,6 @@ html, body {
 .bg-black{
     background-color: black;
 }
+body.dark {
+    background-color: #292c35;
+  }
