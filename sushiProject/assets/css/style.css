@@ -28,4 +28,7 @@ html, body {
 }
 body.dark {
     background-color: #292c35;
-  }
+}
+body.gray {
+    background-color: #494949;
+}
