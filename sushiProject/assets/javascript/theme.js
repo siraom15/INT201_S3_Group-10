@@ -1,7 +1,10 @@
 const Darkmode = document.getElementById('themeBtn');
-
+var searchBtn = document.getElementById("searchBtn");
+var toggleBtn = document.getElementById("toggleBtn");
 Darkmode.addEventListener('click', ()=>{
   document.body.classList.toggle('dark');
+  toggleBtn.classList.toggle('btn-light');
+  searchBtn.classList.toggle('btn-light');
 })
 // let Theme = {
 //   isDarkMode: false,

@@ -24,8 +24,13 @@ html, body {
 }
 
 .bg-black{
-    background-color: black;
+    background-color: red;
 }
 body.dark {
     background-color: #292c35;
+    
+    
   }
+head.dark {
+    background-color: #292c35;
+}
