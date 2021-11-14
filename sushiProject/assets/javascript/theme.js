@@ -1,7 +1,8 @@
 const Darkmode = document.getElementById('themeBtn');
 
 Darkmode.addEventListener('click', ()=>{
-  document.body.classList.toggle('dark');
+  document.body.classList.toggle('gray');
+
 })
 // let Theme = {
 //   isDarkMode: false,
