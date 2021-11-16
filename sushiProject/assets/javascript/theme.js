@@ -8,24 +8,24 @@
 // })
 
 //เปลี่ยนสี theme ให้เป็นโหมด Dark และโหมด Light
-import CookieUtil from './cookieUtil.js';
+// import CookieUtil from './cookieUtil.js';
 
 let Theme = {
   isDarkMode: false,
   init: function () {
-    this.loadCookie();
+    this.loadLocalStorage();
     this.render();
   },
   toggle: function () {
     this.isDarkMode = !this.isDarkMode;
-    this.saveCookie();
+    this.saveLocalStorage();
     this.render();
   },
-  loadCookie: function () {
-    this.isDarkMode = JSON.parse(CookieUtil.get('darkmode'));
+  loadLocalStorage: function () {
+    this.isDarkMode = JSON.parse(localStorage.getItem('darkmode'));
   },
-  saveCookie: function () {
-    CookieUtil.set('darkmode', this.isDarkMode);
+  saveLocalStorage: function () {
+    localStorage.setItem('darkmode', this.isDarkMode);
   },
   render: function () {
     let searchBtn = document.getElementById('searchBtn');
@@ -73,7 +73,7 @@ let Theme = {
       themeBtn.classList.add('btn-outline-dark');
       themeBtn.classList.remove('btn-outline-light');
     }
-  }
+  },
 };
 
 const DarkmodeBtn = document.getElementById('themeBtn');
@@ -83,4 +83,3 @@ DarkmodeBtn.addEventListener('click', (e) => {
 });
 
 export default Theme;
-
