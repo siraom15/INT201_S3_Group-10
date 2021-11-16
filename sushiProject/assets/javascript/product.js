@@ -41,7 +41,7 @@ let Product = {
         id: product.id,
       });
       let card = createEl('div', {
-        class: 'card shadow-sm text-center',
+        class: 'card shadow-lg text-center border-0',
         style: 'width: 18rem;',
       });
       let img = createEl('img', {
