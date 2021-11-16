@@ -35,6 +35,7 @@ let Theme = {
     let navbar = document.getElementById('navbar');
     let cartModal = document.getElementById('cartModal');
 
+    //เปลี่ยนสีปุ่ม แถบบาร์ และพื้นหลัง
     if (this.isDarkMode) {
       body.classList.add('bg-dark');
 
