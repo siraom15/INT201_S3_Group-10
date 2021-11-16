@@ -70,7 +70,7 @@ let Theme = {
       themeBtn.classList.add('btn-outline-dark');
       themeBtn.classList.remove('btn-outline-light');
     }
-  },
+  }
 };
 
 const DarkmodeBtn = document.getElementById('themeBtn');
