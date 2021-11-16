@@ -6,6 +6,8 @@
 //   toggleBtn.classList.toggle('btn-light');
 //   searchBtn.classList.toggle('btn-light');
 // })
+
+//เปลี่ยนสี theme ให้เป็นโหมด Dark และโหมด Light
 import CookieUtil from './cookieUtil.js';
 
 let Theme = {
