@@ -11,9 +11,7 @@ let Cart = {
   getCart: function () {
     return this.currentCart;
   },
-  add: function (e) {
-    let product_id = e.target.id;
-
+  add: function (product_id) {
     let [resultProduct] = Product.findById(product_id);
 
     if (resultProduct && resultProduct.remainInStock > 0) {
@@ -22,7 +20,7 @@ let Cart = {
         this.currentCart[index].quantity++;
       } else {
         let newCartItem = {
-          product: resultProduct,
+          productId: product_id,
           quantity: 1,
         };
         this.currentCart.push(newCartItem);
@@ -35,13 +33,14 @@ let Cart = {
   },
   getTotalPrice: function () {
     return this.currentCart.reduce((prev, curr) => {
-      let price = curr.product.price * curr.quantity;
+      let product = Product.findById(curr.productId)[0];
+      let price = product.price * curr.quantity;
       return prev + price;
     }, 0);
   },
   findIndexByProductId: function (product_id) {
     return this.currentCart.findIndex(
-      (cartItem) => cartItem.product.id === product_id
+      (cartItem) => cartItem.productId === product_id
     );
   },
   getCountItem: function () {
@@ -62,7 +61,10 @@ let Cart = {
       cartDiv.appendChild(p);
       return;
     }
+
     this.currentCart.forEach((cartItem) => {
+      let product = Product.findById(cartItem.productId)[0];
+
       let row = createEl('div', {
         class: 'row m-1',
       });
@@ -73,7 +75,7 @@ let Cart = {
 
       let img = createEl('img', {
         class: 'rounded d-block',
-        src: `./assets/images/${cartItem.product.pictureName}`,
+        src: `./assets/images/${product.pictureName}`,
         width: '100px',
       });
 
@@ -83,7 +85,7 @@ let Cart = {
 
       let p = createEl('p', {
         class: 'text-break',
-        inner: cartItem.product.name,
+        inner: product.name,
       });
 
       let col3 = createEl('div', {
@@ -99,7 +101,7 @@ let Cart = {
       });
 
       let span2 = createEl('span', {
-        inner: `ราคา ${cartItem.quantity * cartItem.product.price} บาท`,
+        inner: `ราคา ${cartItem.quantity * product.price} บาท`,
       });
 
       let col5 = createEl('div', {
