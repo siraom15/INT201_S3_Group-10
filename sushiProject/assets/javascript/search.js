@@ -27,7 +27,6 @@ let Search = {
   },
 };
 
-export default Search;
 
 let toggleBtn = document.getElementById('toggleBtn');
 toggleBtn.addEventListener('click', (e) => {
@@ -38,3 +37,5 @@ let searchBtn = document.getElementById('searchBtn');
 searchBtn.addEventListener('click', (e) => {
   Search.searchName();
 });
+
+export default Search;
