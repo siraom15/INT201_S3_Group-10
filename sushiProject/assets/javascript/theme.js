@@ -10,7 +10,7 @@ let Theme = {
     this.render();
   },
   loadLocalStorage: function () {
-    this.isDarkMode = JSON.parse(localStorage.getItem('darkmode'));
+    this.isDarkMode = !!JSON.parse(localStorage.getItem('darkmode'));
   },
   saveLocalStorage: function () {
     localStorage.setItem('darkmode', this.isDarkMode);
