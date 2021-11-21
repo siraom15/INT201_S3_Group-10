@@ -1,15 +1,3 @@
-// const Darkmode = document.getElementById('themeBtn');
-// var searchBtn = document.getElementById("searchBtn");
-// var toggleBtn = document.getElementById("toggleBtn");
-// Darkmode.addEventListener('click', ()=>{
-//   document.body.classList.toggle('dark');
-//   toggleBtn.classList.toggle('btn-light');
-//   searchBtn.classList.toggle('btn-light');
-// })
-
-//เปลี่ยนสี theme ให้เป็นโหมด Dark และโหมด Light
-// import CookieUtil from './cookieUtil.js';
-
 let Theme = {
   isDarkMode: false,
   init: function () {
@@ -33,9 +21,7 @@ let Theme = {
     let cartBtn = document.getElementById('cartBtn');
     let themeBtn = document.getElementById('themeBtn');
     let body = document.body;
-    let card = document.getElementsByClassName('card');
     let navbar = document.getElementById('navbar');
-    let cartModal = document.getElementById('cartModal');
 
     //เปลี่ยนสีปุ่ม แถบบาร์ และพื้นหลัง
     if (this.isDarkMode) {
