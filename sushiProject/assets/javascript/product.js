@@ -84,7 +84,8 @@ let Product = {
               id: product.id,
             });
       btnAddToCart.addEventListener('click', (e) => {
-        Cart.add(e);
+        let product_id = e.target.id;
+        Cart.add(product_id);
       });
 
       divAddToCart.appendChild(btnAddToCart);
