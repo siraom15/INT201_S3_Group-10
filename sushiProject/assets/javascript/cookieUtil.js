@@ -8,7 +8,7 @@ let CookieUtil = {
         value = val;
       }
     });
-    return value;
+    return decodeURIComponent(value);
   },
   set: function (name, value, expires) {
     let cookieStr = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;

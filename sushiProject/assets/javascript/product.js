@@ -4,7 +4,7 @@ import { products } from './product-list.js';
 
 let Product = {
   products: [],
-  init : function () {
+  init: function () {
     this.products = products;
     this.render();
   },
