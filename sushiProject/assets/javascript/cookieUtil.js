@@ -4,7 +4,7 @@ let CookieUtil = {
     let value = null;
     cookieStr.split(';').forEach((e) => {
       let [key, val] = e.trim().split('=');
-      if (key === name) {
+      if (decodeURIComponent(key) === name) {
         value = val;
       }
     });
